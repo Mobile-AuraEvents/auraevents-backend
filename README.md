@@ -5,10 +5,13 @@ Backend em Spring Boot para gerenciamento de eventos artisticos (uso local/acade
 ## Requisitos
 - Java 21
 - Maven 3.9+
+- PostgreSQL local
 
 ## Como rodar localmente
-1. No IntelliJ, abrir o projeto.
-2. Executar a classe `AuraevApplication` (botao Run).
+1. Garanta que o PostgreSQL local esteja ativo.
+2. Garanta que o banco `auraev` exista.
+3. Ajuste usuario/senha no `application.properties` se necessario.
+4. No IntelliJ, execute a classe `AuraevApplication`.
 
 Ou via terminal:
 ```bash
@@ -16,9 +19,10 @@ Ou via terminal:
 ```
 
 ## Banco de dados
-- Banco em memoria: H2
-- URL: `jdbc:h2:mem:auraevdb`
-- Console H2: `http://localhost:8080/h2-console`
+- SGBD: PostgreSQL local
+- URL: `jdbc:postgresql://localhost:5432/auraev`
+- Usuario padrao: `postgres`
+- Senha padrao: `postgres`
 
 ## CORS
 - Liberado para chamadas locais do frontend.
@@ -27,7 +31,6 @@ Ou via terminal:
 - `GET /api/health`
 
 ## Rotas principais
-### CRUDs basicos
 - `GET/POST /api/casas-de-show`
 - `GET/PUT/DELETE /api/casas-de-show/{id}`
 - `GET/POST /api/artistas`
@@ -36,14 +39,10 @@ Ou via terminal:
 - `GET/PUT/DELETE /api/patrocinadores/{id}`
 - `GET/POST /api/veiculos-imprensa`
 - `GET/PUT/DELETE /api/veiculos-imprensa/{id}`
-
-### Shows
 - `GET/POST /api/shows`
 - `GET/PUT/DELETE /api/shows/{id}`
 - `POST /api/shows/{id}/patrocinadores`
 - `POST /api/shows/{id}/veiculos-imprensa`
-
-### Convidados
 - `GET /api/patrocinadores/{patrocinadorId}/convidados`
 - `POST /api/patrocinadores/{patrocinadorId}/convidados`
 - `PUT /api/convidados/{convidadoId}`
