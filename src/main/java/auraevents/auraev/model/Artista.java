@@ -7,6 +7,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.Column;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.AllArgsConstructor;
@@ -27,6 +28,8 @@ public class Artista {
 
     private String nome;
     private String assessorResponsavel;
+    @Column(columnDefinition = "TEXT")
+    private String fotoUrl;
 
     @ElementCollection
     @CollectionTable(name = "artista_telefones", joinColumns = @JoinColumn(name = "artista_id"))

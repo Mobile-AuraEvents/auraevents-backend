@@ -1,0 +1,5 @@
+ALTER TABLE casa_de_show
+ALTER COLUMN foto_url TYPE TEXT;
+
+ALTER TABLE artista
+ALTER COLUMN foto_url TYPE TEXT;
