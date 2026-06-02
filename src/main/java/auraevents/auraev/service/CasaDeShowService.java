@@ -36,6 +36,7 @@ public class CasaDeShowService {
         existente.setUf(dto.uf());
         existente.setCapacidadeMaxima(dto.capacidadeMaxima());
         existente.setTelefone(dto.telefone());
+        existente.setFotoUrl(dto.fotoUrl());
         return toDto(repository.save(existente));
     }
 
@@ -58,11 +59,12 @@ public class CasaDeShowService {
                 .uf(dto.uf())
                 .capacidadeMaxima(dto.capacidadeMaxima())
                 .telefone(dto.telefone())
+                .fotoUrl(dto.fotoUrl())
                 .build();
     }
 
     private CasaDeShowDto toDto(CasaDeShow entity) {
         return new CasaDeShowDto(entity.getId(), entity.getNome(), entity.getRua(), entity.getNumero(), entity.getBairro(),
-                entity.getCidade(), entity.getUf(), entity.getCapacidadeMaxima(), entity.getTelefone());
+                entity.getCidade(), entity.getUf(), entity.getCapacidadeMaxima(), entity.getTelefone(), entity.getFotoUrl());
     }
 }

@@ -11,6 +11,7 @@ public record CasaDeShowDto(
         String cidade,
         String uf,
         Integer capacidadeMaxima,
-        String telefone
+        String telefone,
+        String fotoUrl
 ) {
 }
