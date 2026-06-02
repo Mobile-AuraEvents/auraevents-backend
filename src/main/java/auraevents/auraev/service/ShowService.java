@@ -11,6 +11,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
@@ -39,10 +40,12 @@ public class ShowService {
         return toDto(saved);
     }
 
+    @Transactional(readOnly = true)
     public List<ShowDto> listar() {
         return showRepository.findAll().stream().map(this::toDto).toList();
     }
 
+    @Transactional(readOnly = true)
     public ShowDto buscarPorId(Long id) {
         return toDto(findShow(id));
     }
